@@ -10,6 +10,11 @@ const StyledContainer = styled.div`
   padding: 10px;
   background-color: yellow;
   height: 100%;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export default function Container() {
