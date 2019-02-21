@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 
 const StyledBlog = styled.div`
@@ -18,12 +18,9 @@ export default function Blog({ match }) {
     <StyledBlog>
       <h3>Blog</h3>
 
-      <Switch>
-        <Route path={`${match.url}/greet`} component={() => <Greet name='Luke' />} />
-        <Route path={`${match.url}/takecare`} component={() => <TakeCare name='Gabe' />} />
-        <Route path={`${match.url}/goodbye`} component={() => <Goodbye name='Tom' />} />
-        <Route component={() => <div>404 error</div>} />
-      </Switch>
+      <Route path={`${match.url}/greet`} component={() => <Greet name='Luke' />} />
+      <Route path={`${match.url}/takecare`} component={() => <TakeCare name='Gabe' />} />
+      <Route path={`${match.url}/goodbye`} component={() => <Goodbye name='Tom' />} />
 
       <Link to={`${match.url}/greet`}>Greet</Link>
       <Link to={`${match.url}/takecare`}>Take Care</Link>
