@@ -13,3 +13,9 @@ We need `node` & `npm`, as well as packages `live-server` and `eslint` installed
 
 # Steps
 
+## The history api
+  * what is an api.
+  * The user's history: the history object.
+  * MDN: `https://developer.mozilla.org/en-US/docs/Web/API/History_API`.
+  * Adding and modifying history entries: `history.pushState()` and `history.replaceState()`.
+  

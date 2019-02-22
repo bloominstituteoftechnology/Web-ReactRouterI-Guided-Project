@@ -70,13 +70,20 @@ function withRouteMatching(Component) {
       path: null,
     }
 
+    getPath = () => window.location.pathname
+
+    setPath = () => this.setState({ path: this.getPath() })
+
     componentDidMount() {
-      this.interval = setInterval(() => {
-        const { pathname } = window.location;
-        if (pathname !== this.state.path) {
-          this.setState({ path: window.location.pathname });
+      this.setPath();
+
+      window.addEventListener('popstate', () => {
+        const pathChanged = this.getPath() !== this.state.path;
+
+        if (pathChanged) {
+          this.setPath();
         }
-      }, 100);
+      });
     }
 
     render() {
@@ -91,15 +98,13 @@ function withRouteMatching(Component) {
 }
 
 class Link extends React.Component {
-  navigateTo = path => {
-    window.history.pushState(null, null, path);
+  navigate = () => {
+    window.history.pushState(null, null, this.props.to);
   }
 
   render() {
-    const { to } = this.props;
-
     return (
-      <a href="#" onClick={() => this.navigateTo(to)}>
+      <a href="#" onClick={this.navigate}>
         {this.props.children}
       </a>
     );
