@@ -27,19 +27,10 @@ function withRouteMatching(Component) {
       }, 100);
     }
 
-    componentWillUnmount() {
-      clearInterval(this.interval);
-    }
-
     render() {
-      if (!this.props.path) {
-        return <Component {...this.props} />;
-      }
+      const desiredPathMatchesBrowser = this.props.path === this.state.path;
 
-      const weHaveBrowserPath = !!this.state.path;
-      const pathMatchesBrowserPath = this.props.path === this.state.path;
-
-      if (weHaveBrowserPath && pathMatchesBrowserPath) {
+      if (!this.props.path || desiredPathMatchesBrowser) {
         return <Component {...this.props} />;
       }
       return null;
@@ -63,6 +54,7 @@ class Link extends React.Component {
   }
 }
 
+const Meh = withRouteMatching(() => <h1>MEH</h1>);
 const Section = withRouteMatching(SectionPlain);
 
 export default function Container() {
@@ -72,7 +64,10 @@ export default function Container() {
         <Link to='/'>Home</Link>
         <Link to='/about'>About</Link>
         <Link to='/blog'>Blog</Link>
+        <Link to='/meh'>Meh</Link>
       </nav>
+
+      <Meh path='/meh' />
 
       <Section
         path='/'
@@ -95,7 +90,7 @@ export default function Container() {
         content='This is Blog.'
       />
 
-      <Section
+      <SectionPlain
         color='magenta'
         heading='Unconditional'
         content='This always renders.'
