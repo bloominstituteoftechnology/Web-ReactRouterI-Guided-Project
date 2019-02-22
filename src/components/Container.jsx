@@ -79,10 +79,7 @@ function withRouteMatching(Component) {
 
       window.addEventListener('popstate', () => {
         const pathChanged = this.getPath() !== this.state.path;
-
-        if (pathChanged) {
-          this.setPath();
-        }
+        if (pathChanged) this.setPath();
       });
     }
 
