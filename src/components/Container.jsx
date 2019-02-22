@@ -32,13 +32,17 @@ function withRouteMatching(Component) {
     }
 
     render() {
-      const noPathYet = !this.state.path;
-      const pathDoesNotMatch = this.state.path !== this.props.path;
-
-      if (noPathYet || pathDoesNotMatch) {
-        return null;
+      if (!this.props.path) {
+        return <Component {...this.props} />;
       }
-      return <Component {...this.props} />;
+
+      const weHaveBrowserPath = !!this.state.path;
+      const pathMatchesBrowserPath = this.props.path === this.state.path;
+
+      if (weHaveBrowserPath && pathMatchesBrowserPath) {
+        return <Component {...this.props} />;
+      }
+      return null;
     }
   };
 }
@@ -91,7 +95,7 @@ export default function Container() {
         content='This is Blog.'
       />
 
-      <SectionPlain
+      <Section
         color='magenta'
         heading='Unconditional'
         content='This always renders.'
