@@ -66,9 +66,7 @@ export default function Container() {
 
 function withRouteMatching(Component) {
   return class WithRouteMatching extends React.Component {
-    state = {
-      path: null,
-    }
+    state = { path: null }
 
     getPath = () => window.location.pathname
 
@@ -81,8 +79,9 @@ function withRouteMatching(Component) {
 
     render() {
       const pathsMatch = this.props.path === this.state.path;
+      const renderAlways = !this.props.path;
 
-      if (!this.props.path || pathsMatch) {
+      if (renderAlways || pathsMatch) {
         return <Component {...this.props} />;
       }
       return null;
