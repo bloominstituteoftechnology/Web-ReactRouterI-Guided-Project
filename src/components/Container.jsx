@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import SectionPlain from '../screens/Section';
 
@@ -21,46 +21,43 @@ const Section = withRouteMatching(SectionPlain);
 
 export default function Container() {
   return (
-    <Router>
-      <StyledContainer>
-        <nav>
-          <Link to='/'>Home</Link>
-          <Link to='/about'>About</Link>
-          <Link to='/blog'>Blog</Link>
-          <Link to='/meh'>Meh</Link>
-        </nav>
+    <StyledContainer>
+      <nav>
+        <Link to='/'>Home</Link>
+        <Link to='/about'>About</Link>
+        <Link to='/blog'>Blog</Link>
+        <Link to='/meh'>Meh</Link>
+      </nav>
 
-        <Route path='/meh' component={PlainMeh} />
-        {/* <Meh path='/meh' /> */}
+      <Meh path='/meh' />
 
-        <Section
-          path='/'
-          color='red'
-          heading='Home'
-          content='This is home.'
-        />
+      <Section
+        path='/'
+        color='red'
+        heading='Home'
+        content='This is home.'
+      />
 
-        <Section
-          path='/about'
-          color='pink'
-          heading='About'
-          content='This is about.'
-        />
+      <Section
+        path='/about'
+        color='pink'
+        heading='About'
+        content='This is about.'
+      />
 
-        <Section
-          path='/blog'
-          color='blue'
-          heading='Blog'
-          content='This is Blog.'
-        />
+      <Section
+        path='/blog'
+        color='blue'
+        heading='Blog'
+        content='This is Blog.'
+      />
 
-        <Section
-          color='magenta'
-          heading='Unconditional'
-          content='This always renders.'
-        />
-      </StyledContainer>
-    </Router>
+      <Section
+        color='magenta'
+        heading='Unconditional'
+        content='This always renders.'
+      />
+    </StyledContainer>
   );
 }
 
@@ -68,17 +65,17 @@ function withRouteMatching(Component) {
   return class WithRouteMatching extends React.Component {
     state = { path: null }
 
-    getPath = () => window.location.pathname
+    getPath = () => location.pathname
 
     setPath = () => this.setState({ path: this.getPath() })
 
     componentDidMount() {
       this.setPath();
-      window.addEventListener('popstate', this.setPath);
+      addEventListener('popstate', this.setPath);
     }
 
     render() {
-      const pathsMatch = this.props.path === this.state.path;
+      const pathsMatch = this.props.path === location.pathname;
       const renderAlways = !this.props.path;
 
       if (renderAlways || pathsMatch) {
@@ -91,7 +88,7 @@ function withRouteMatching(Component) {
 
 class Link extends React.Component {
   navigate = () => {
-    window.history.pushState(null, null, this.props.to);
+    history.pushState(null, null, this.props.to);
   }
 
   render() {

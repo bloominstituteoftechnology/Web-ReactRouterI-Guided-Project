@@ -14,9 +14,16 @@ We need `node` & `npm`, as well as packages `live-server` and `eslint` installed
 # Steps
 
 ## The history api
-  * what is an api.
-  * The user's history: the history object.
-  * MDN: `https://developer.mozilla.org/en-US/docs/Web/API/History_API`.
-  * Adding an entry to the history: `history.pushState()` and `history.replaceState()`.
-  * Replacing an
+  * Manipulating the browser history with the `history` object.
+  * Show this MDN page: `https://developer.mozilla.org/en-US/docs/Web/API/History_API`.
+  * Demonstrate the methods on `history`: `forward()`, `back()`, `go()`.
+  * Local `location.pathname` can be changed programmatically without causing reload. 
+  * Adding an entry to the history: `history.pushState()`.
+  * Listening for the `popstate` event. Only triggers when interacting with browser!
 
+## Implementing React Router
+  * Build a class `Link` component that uses `history.pushState()` to navigate the user without reload.
+  * Explain we want our component to render only if `location.pathname` matches a `path` prop.
+  * Build a HOC named `withRouteMatching` that enriches wrapped components with this funcionality.
+  * This HOC should subscribe to path changes by adding a listener for the `popstate` event.
+  * The listener for `popstate` should update state with the current `location.pathname`.
