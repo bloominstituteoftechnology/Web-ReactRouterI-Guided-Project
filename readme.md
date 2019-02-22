@@ -21,9 +21,14 @@ We need `node` & `npm`, as well as packages `live-server` and `eslint` installed
   * Adding an entry to the history: `history.pushState()`.
   * Listening for the `popstate` event. Only triggers when interacting with browser!
 
-## Implementing React Router
+## Implementing a simple React Router
   * Build a class `Link` component that uses `history.pushState()` to navigate the user without reload.
-  * Explain we want our component to render only if `location.pathname` matches a `path` prop.
+  * Explain we would like components to render only if `location.pathname` matches a `path` prop.
   * Build a HOC named `withRouteMatching` that enriches wrapped components with this funcionality.
-  * This HOC should subscribe to path changes by adding a listener for the `popstate` event.
+  * This HOC should subscribe to `location.pathname` changes by adding a listener for the `popstate` event.
   * The listener for `popstate` should update state with the current `location.pathname`.
+  * The HOC should go ahead and render the component if no `path` prop is passed.
+
+## React Router
+  * Explain the BrowserRouter component.
+  *

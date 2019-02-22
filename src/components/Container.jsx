@@ -15,7 +15,7 @@ const StyledContainer = styled.div`
   }
 `;
 
-const PlainMeh = () => <h1>MEH</h1>;
+const PlainMeh = (props) => <h1>MEH: {props.path}</h1>;
 const Meh = withRouteMatching(PlainMeh);
 const Section = withRouteMatching(SectionPlain);
 
@@ -29,7 +29,9 @@ export default function Container() {
         <Link to='/meh'>Meh</Link>
       </nav>
 
-      <Meh path='/meh' />
+      <Meh
+        path='/meh'
+      />
 
       <Section
         path='/'
@@ -75,7 +77,7 @@ function withRouteMatching(Component) {
     }
 
     render() {
-      const pathsMatch = this.props.path === location.pathname;
+      const pathsMatch = this.props.path === this.getPath();
       const renderAlways = !this.props.path;
 
       if (renderAlways || pathsMatch) {
