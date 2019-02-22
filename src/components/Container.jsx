@@ -76,17 +76,13 @@ function withRouteMatching(Component) {
 
     componentDidMount() {
       this.setPath();
-
-      window.addEventListener('popstate', () => {
-        const pathChanged = this.getPath() !== this.state.path;
-        if (pathChanged) this.setPath();
-      });
+      window.addEventListener('popstate', this.setPath);
     }
 
     render() {
-      const desiredPathMatchesBrowser = this.props.path === this.state.path;
+      const pathsMatch = this.props.path === this.state.path;
 
-      if (!this.props.path || desiredPathMatchesBrowser) {
+      if (!this.props.path || pathsMatch) {
         return <Component {...this.props} />;
       }
       return null;
