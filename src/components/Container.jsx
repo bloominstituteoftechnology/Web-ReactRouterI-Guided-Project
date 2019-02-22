@@ -1,5 +1,5 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import SectionPlain from '../screens/Section';
 
@@ -15,6 +15,55 @@ const StyledContainer = styled.div`
   }
 `;
 
+const PlainMeh = () => <h1>MEH</h1>;
+const Meh = withRouteMatching(PlainMeh);
+const Section = withRouteMatching(SectionPlain);
+
+export default function Container() {
+  return (
+    <Router>
+      <StyledContainer>
+        <nav>
+          <Link to='/'>Home</Link>
+          <Link to='/about'>About</Link>
+          <Link to='/blog'>Blog</Link>
+          <Link to='/meh'>Meh</Link>
+        </nav>
+
+        <Route path='/meh' component={PlainMeh} />
+        {/* <Meh path='/meh' /> */}
+
+        <Section
+          path='/'
+          color='red'
+          heading='Home'
+          content='This is home.'
+        />
+
+        <Section
+          path='/about'
+          color='pink'
+          heading='About'
+          content='This is about.'
+        />
+
+        <Section
+          path='/blog'
+          color='blue'
+          heading='Blog'
+          content='This is Blog.'
+        />
+
+        <Section
+          color='magenta'
+          heading='Unconditional'
+          content='This always renders.'
+        />
+      </StyledContainer>
+    </Router>
+  );
+}
+
 function withRouteMatching(Component) {
   return class WithRouteMatching extends React.Component {
     state = {
@@ -23,7 +72,10 @@ function withRouteMatching(Component) {
 
     componentDidMount() {
       this.interval = setInterval(() => {
-        this.setState({ path: window.location.pathname });
+        const { pathname } = window.location;
+        if (pathname !== this.state.path) {
+          this.setState({ path: window.location.pathname });
+        }
       }, 100);
     }
 
@@ -52,49 +104,4 @@ class Link extends React.Component {
       </a>
     );
   }
-}
-
-const Meh = withRouteMatching(() => <h1>MEH</h1>);
-const Section = withRouteMatching(SectionPlain);
-
-export default function Container() {
-  return (
-    <StyledContainer>
-      <nav>
-        <Link to='/'>Home</Link>
-        <Link to='/about'>About</Link>
-        <Link to='/blog'>Blog</Link>
-        <Link to='/meh'>Meh</Link>
-      </nav>
-
-      <Meh path='/meh' />
-
-      <Section
-        path='/'
-        color='red'
-        heading='Home'
-        content='This is home.'
-      />
-
-      <Section
-        path='/about'
-        color='pink'
-        heading='About'
-        content='This is about.'
-      />
-
-      <Section
-        path='/blog'
-        color='blue'
-        heading='Blog'
-        content='This is Blog.'
-      />
-
-      <Section
-        color='magenta'
-        heading='Unconditional'
-        content='This always renders.'
-      />
-    </StyledContainer>
-  );
 }
