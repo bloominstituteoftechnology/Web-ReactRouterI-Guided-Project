@@ -39,8 +39,8 @@ function withRouteMatching(Component) {
 }
 
 class Link extends React.Component {
-  navigateTo = to => {
-    window.history.pushState(null, null, to);
+  navigateTo = path => {
+    window.history.pushState(null, null, path);
   }
 
   render() {
@@ -90,7 +90,7 @@ export default function Container() {
         content='This is Blog.'
       />
 
-      <SectionPlain
+      <Section
         color='magenta'
         heading='Unconditional'
         content='This always renders.'
