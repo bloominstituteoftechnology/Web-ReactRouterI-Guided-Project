@@ -6,7 +6,12 @@
   * Serve `index.html` using `live-server` or similar.
 
 # Objectives
-  * Learn React Router.
+  * Learn our options, old and new, for changing the URL programmatically.
+  * Learn how we might conditionally render content based on URL.
+  * Learn other reasons this might be useful: enabling back button, etc.
+  * Learn about the History API.
+  * Reimplement a crude version of React Router using the Histoy API.
+  * Learn the basics of React Router: `Router`, `Route` and `Link`.
 
 # Requirements
 We need `node` & `npm`, as well as packages `live-server` and `eslint` installed _globally_. VSCode's `eslint` extension is recommended. Command line commands are run inside the project folder. This guide uses npm but should work the same using yarn.
@@ -14,7 +19,9 @@ We need `node` & `npm`, as well as packages `live-server` and `eslint` installed
 # Steps
 
 ## The history api
-  * Manipulating the browser history with the `history` object.
+  * In the old days, setting window.location was the only way to programmatically change the URL.
+  * Unfortunately this technique causes a full page reload and a 404 if the page does not exist.
+  * Now we can manipulate the browser history with the `history` object.
   * Show this MDN page: `https://developer.mozilla.org/en-US/docs/Web/API/History_API`.
   * Demonstrate the methods on `history`: `forward()`, `back()`, `go()`.
   * Local `location.pathname` can be changed programmatically without causing reload. 
