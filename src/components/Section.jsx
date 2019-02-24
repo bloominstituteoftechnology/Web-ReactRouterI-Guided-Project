@@ -1,27 +1,32 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { lighten, darken } from 'polished';
 import { string } from 'prop-types';
 
 
 const kf = keyframes`
   to {
     opacity: 1;
+    transform: translateX(0);
   }
 `;
 
 const StyledSection = styled.section`
-  background-color: ${pr => pr.color};
+  opacity: 0;
+  transform: translateX(100%);
+  color: ${pr => darken(0.1, pr.color)};
   margin-top: 20px;
   padding: 20px;
-  opacity: 0;
   animation: ${kf} 0.2s ease-out forwards;
+  border: 12px solid ${pr => lighten(0.32, pr.color)};
+  border-radius: 32px;
 `;
 
 export default function Section({ heading, content, color, path }) {
   return (
     <StyledSection color={color}>
-      <h1>{heading}</h1>
-      {!!path && <h3>{path}</h3>}
+      <h3>{heading}</h3>
+      {!!path && <h5>{path}</h5>}
       <p>{content}</p>
     </StyledSection>
   );

@@ -5,11 +5,11 @@ import SectionPlain from './Section';
 
 
 const StyledContainer = styled.div`
-  padding: 10px;
-  background-color: yellow;
+  padding: 20px;
   height: 100%;
 
   nav {
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
   }
@@ -24,32 +24,32 @@ export default function Container() {
         <Link to='/'>Home</Link>
         <Link to='/about'>About</Link>
         <Link to='/blog'>Blog</Link>
-        <Link to='/meh'>Meh</Link>
+        <Link to='/other'>Other</Link>
       </nav>
 
       <Section
         path='/'
-        color='red'
+        color='#4286f4'
         heading='Home'
         content='This is home.'
       />
 
       <Section
         path='/about'
-        color='pink'
+        color='#ed6d2d'
         heading='About'
         content='This is about.'
       />
 
       <Section
         path='/blog'
-        color='blue'
+        color='#66ad03'
         heading='Blog'
         content='This is Blog.'
       />
 
       <Section
-        color='magenta'
+        color='#d6247a'
         heading='Unconditional'
         content='This always renders.'
       />
