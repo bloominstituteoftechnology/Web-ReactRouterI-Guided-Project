@@ -1,7 +1,10 @@
 import React from 'react';
 // import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import SectionPlain from './Section';
+import BlackjackPlain from '../screens/Blackjack';
+import RockPaperScissorsPlain from '../screens/RockPaperScissors';
+import TicTacToePlain from '../screens/TicTacToe';
+import Section from './Section';
 
 
 const StyledContainer = styled.div`
@@ -15,43 +18,30 @@ const StyledContainer = styled.div`
   }
 `;
 
-const Section = withRouteMatching(SectionPlain);
+const Blackjack = withRouteMatching(BlackjackPlain);
+const RockPaperScissors = withRouteMatching(RockPaperScissorsPlain);
+const TicTacToe = withRouteMatching(TicTacToePlain);
 
 export default function Container() {
   return (
     <StyledContainer>
       <nav>
-        <Link to='/'>Home</Link>
-        <Link to='/about'>About</Link>
-        <Link to='/blog'>Blog</Link>
-        <Link to='/other'>Contact</Link>
+        <Link to='/'>Black</Link>
+        <Link to='/rock_paper_scissors'>Rock</Link>
+        <Link to='/tic_tac_toe'>Tic</Link>
+        <Link to='/contact'>Contact</Link>
       </nav>
 
-      <Section
-        path='/'
-        color='#4286f4'
-        heading='Home'
-        content='This is home.'
-      />
+      <Blackjack path='/' />
 
-      <Section
-        path='/about'
-        color='#ed6d2d'
-        heading='About'
-        content='This is about.'
-      />
+      <RockPaperScissors path='/rock_paper_scissors' />
 
-      <Section
-        path='/blog'
-        color='#66ad03'
-        heading='Blog'
-        content='This is Blog.'
-      />
+      <TicTacToe path='/tic_tac_toe' />
 
       <Section
         color='#d6247a'
         heading='Contact'
-        content='This always renders.'
+        content='Contact me always renders.'
       />
     </StyledContainer>
   );
