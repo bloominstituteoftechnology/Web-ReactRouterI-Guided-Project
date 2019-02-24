@@ -14,43 +14,28 @@ const StyledSection = styled.section`
   margin-top: 20px;
   padding: 20px;
   opacity: 0;
-  animation: ${kf} 1s ease-out forwards;
+  animation: ${kf} 0.2s ease-out forwards;
 `;
 
-// export default function Section({ heading, content, color, path }) {
-//   return (
-//     <StyledSection color={color}>
-//       <h1>{heading}</h1>
-//       {!!path && <h3>{path}</h3>}
-//       <p>{content}</p>
-//     </StyledSection>
-//   );
-// }
-
-export default class Section extends React.Component {
-  componentWillMount() {
-    console.log(this.props.heading + ' mounting');
-  }
-
-  componentWillUnmount() {
-    console.log(this.props.heading + ' UNmounting');
-  }
-
-  render() {
-    const { heading, content, color, path } = this.props;
-    return (
-      <StyledSection color={color}>
-        <h1>{heading}</h1>
-        {!!path && <h3>{path}</h3>}
-        <p>{content}</p>
-      </StyledSection>
-    );
-  }
+export default function Section({ heading, content, color, path }) {
+  return (
+    <StyledSection color={color}>
+      <h1>{heading}</h1>
+      {!!path && <h3>{path}</h3>}
+      <p>{content}</p>
+    </StyledSection>
+  );
 }
 
-Section.proptTypes = {
-  heading: string.isRequired,
-  content: string.isRequired,
-  color: string.isRequired,
+Section.propTypes = {
+  heading: string,
+  content: string,
+  color: string,
   path: string,
+};
+
+Section.defaultProps = {
+  heading: 'Default Section',
+  content: 'This is default content.',
+  color: 'white',
 };

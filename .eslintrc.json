@@ -48,6 +48,9 @@
         "import/prefer-default-export": 0,
         "import/no-named-as-default": 0,
         "no-use-before-define": 0,
-        "no-restricted-globals": 0
+        "no-restricted-globals": 0,
+        "react/jsx-max-props-per-line": 0,
+        "react/jsx-closing-bracket-location": 0,
+        "react/require-default-props": 0
     }
 }
