@@ -24,7 +24,7 @@ export default function Container() {
         <Link to='/'>Home</Link>
         <Link to='/about'>About</Link>
         <Link to='/blog'>Blog</Link>
-        <Link to='/other'>Other</Link>
+        <Link to='/other'>Contact</Link>
       </nav>
 
       <Section
@@ -50,7 +50,7 @@ export default function Container() {
 
       <Section
         color='#d6247a'
-        heading='Unconditional'
+        heading='Contact'
         content='This always renders.'
       />
     </StyledContainer>
