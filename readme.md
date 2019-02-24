@@ -21,6 +21,7 @@ We need `node` & `npm`, as well as packages `live-server` and `eslint` installed
 ## The history api
   * In the old days, setting window.location was the only way to programmatically change the URL.
   * Unfortunately this technique causes a full page reload and a 404 if the page does not exist.
+  * To avoid a reload, the `hashbang` method was used to change the URL of the browser.
   * Now we can manipulate the browser history with the `history` object.
   * Show this MDN page: `https://developer.mozilla.org/en-US/docs/Web/API/History_API`.
   * Demonstrate the methods on `history`: `forward()`, `back()`, `go()`.
