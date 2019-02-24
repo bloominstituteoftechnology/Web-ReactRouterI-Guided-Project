@@ -1,5 +1,5 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import SectionPlain from '../screens/Section';
 
@@ -21,6 +21,7 @@ const Section = withRouteMatching(SectionPlain);
 
 export default function Container() {
   return (
+    // <Router>
     <StyledContainer>
       <nav>
         <Link to='/'>Home</Link>
@@ -28,6 +29,45 @@ export default function Container() {
         <Link to='/blog'>Blog</Link>
         <Link to='/meh'>Meh</Link>
       </nav>
+
+      {/* <Route
+          exact
+          path='/'
+          render={() => (
+            <SectionPlain
+              color='red'
+              heading='Home'
+              content='This is home.'
+            />
+          )}
+        />
+
+        <Route
+          path='/about'
+          render={() => (
+            <SectionPlain
+              color='pink'
+              heading='About'
+              content='This is about.'
+            />
+          )}
+        />
+
+        <Route
+          path='/about'
+          render={() => (
+            <SectionPlain
+              color='pink'
+              heading='About'
+              content='This is about.'
+            />
+          )}
+        />
+
+        <Route
+          path='/meh'
+          component={PlainMeh}
+        /> */}
 
       <Meh
         path='/meh'
@@ -60,24 +100,22 @@ export default function Container() {
         content='This always renders.'
       />
     </StyledContainer>
+    // </Router>
   );
 }
 
 function withRouteMatching(Component) {
   return class WithRouteMatching extends React.Component {
-    state = { path: null }
+    state = { path: location.pathname }
 
-    getPath = () => location.pathname
-
-    setPath = () => this.setState({ path: this.getPath() })
+    setPath = () => this.setState({ path: location.pathname })
 
     componentDidMount() {
-      this.setPath();
       addEventListener('popstate', this.setPath);
     }
 
     render() {
-      const pathsMatch = this.props.path === this.getPath();
+      const pathsMatch = this.props.path === this.state.path;
       const renderAlways = !this.props.path;
 
       if (renderAlways || pathsMatch) {

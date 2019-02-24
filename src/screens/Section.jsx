@@ -17,14 +17,35 @@ const StyledSection = styled.section`
   animation: ${kf} 1s ease-out forwards;
 `;
 
-export default function Section({ heading, content, color, path }) {
-  return (
-    <StyledSection color={color}>
-      <h1>{heading}</h1>
-      {!!path && <h3>{path}</h3>}
-      <p>{content}</p>
-    </StyledSection>
-  );
+// export default function Section({ heading, content, color, path }) {
+//   return (
+//     <StyledSection color={color}>
+//       <h1>{heading}</h1>
+//       {!!path && <h3>{path}</h3>}
+//       <p>{content}</p>
+//     </StyledSection>
+//   );
+// }
+
+export default class Section extends React.Component {
+  componentWillMount() {
+    console.log(this.props.heading + ' mounting');
+  }
+
+  componentWillUnmount() {
+    console.log(this.props.heading + ' UNmounting');
+  }
+
+  render() {
+    const { heading, content, color, path } = this.props;
+    return (
+      <StyledSection color={color}>
+        <h1>{heading}</h1>
+        {!!path && <h3>{path}</h3>}
+        <p>{content}</p>
+      </StyledSection>
+    );
+  }
 }
 
 Section.proptTypes = {
