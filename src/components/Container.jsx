@@ -69,9 +69,9 @@ function withRouteMatching(Component) {
 
     render() {
       const pathsMatch = this.props.path === this.state.path;
-      const renderAlways = !this.props.path;
+      const shouldRenderAlways = !this.props.path;
 
-      if (renderAlways || pathsMatch) {
+      if (shouldRenderAlways || pathsMatch) {
         return <Component {...this.props} currentPath={this.state.path} />;
       }
       return null;
