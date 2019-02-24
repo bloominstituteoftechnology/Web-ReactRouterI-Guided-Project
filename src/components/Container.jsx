@@ -1,7 +1,7 @@
 import React from 'react';
 // import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import SectionPlain from '../screens/Section';
+import SectionPlain from './Section';
 
 
 const StyledContainer = styled.div`
