@@ -10,7 +10,7 @@
   * Learn how we might conditionally render content based on URL.
   * Learn other reasons this might be useful: enabling back button, etc.
   * Learn about the History API.
-  * Reimplement a crude version of React Router using the Histoy API.
+  * Reimplement a crude version of React Router using the History API.
   * Learn the basics of React Router: `Router`, `Route` and `Link`.
 
 # Requirements
@@ -22,12 +22,11 @@ We need `node` & `npm`, as well as packages `live-server` and `eslint` installed
   * In the old days, setting window.location was the only way to programmatically change the URL.
   * Unfortunately this technique causes a full page reload and a 404 if the page does not exist.
   * To avoid a reload, the `hashbang` method was used to change the URL of the browser.
-  * Now we can manipulate the browser history with the `history` object.
+  * Now we can manipulate the browser history with the `history` object (without causing reload).
   * Show this MDN page: `https://developer.mozilla.org/en-US/docs/Web/API/History_API`.
   * Demonstrate the methods on `history`: `forward()`, `back()`, `go()`.
-  * Local `location.pathname` can be changed programmatically without causing reload. 
   * Adding an entry to the history: `history.pushState()`.
-  * Listening for the `popstate` event. Only triggers when interacting with browser!
+  * Listening for the `popstate` event. Only triggers when interacting with browser (anchor tags, back button...)!
 
 ## Implementing a Link Component That Changes URL locally
   * Build a class `Link` component that uses `history.pushState()` and an anchor tag to navigate user without reload.
