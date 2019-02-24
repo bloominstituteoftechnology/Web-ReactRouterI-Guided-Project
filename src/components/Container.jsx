@@ -1,11 +1,24 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import BlackjackPlain from '../screens/Blackjack';
-import RockPaperScissorsPlain from '../screens/RockPaperScissors';
-import TicTacToePlain from '../screens/TicTacToe';
+import Blackjack from '../screens/Blackjack';
+import RockPaperScissors from '../screens/RockPaperScissors';
+import TicTacToe from '../screens/TicTacToe';
 import Section from './Section';
 
+
+const apps = [
+  { id: 'blackjack', Component: Blackjack },
+  { id: 'rock_paper_scissors', Component: RockPaperScissors },
+  { id: 'tic_tac_toe', Component: TicTacToe },
+];
+
+const App = props => {
+  const { Component } = apps.find(
+    app => app.id === props.match.params.id,
+  );
+  return <Component {...props} />;
+};
 
 const StyledContainer = styled.div`
   padding: 20px;
@@ -18,67 +31,73 @@ const StyledContainer = styled.div`
   }
 `;
 
-const Blackjack = withRouteMatching(BlackjackPlain);
-const RockPaperScissors = withRouteMatching(RockPaperScissorsPlain);
-const TicTacToe = withRouteMatching(TicTacToePlain);
-
 export default function Container() {
   return (
-    <StyledContainer>
-      <nav>
-        <Link to='/'>Black</Link>
-        <Link to='/rock_paper_scissors'>Rock</Link>
-        <Link to='/tic_tac_toe'>Tic</Link>
-        <Link to='/contact'>Contact</Link>
-      </nav>
+    <Router>
+      <StyledContainer>
+        <nav>
+          <Link to='/apps/blackjack'>Black</Link>
+          <Link to='/apps/rock_paper_scissors'>Rock</Link>
+          <Link to='/apps/tic_tac_toe'>Tic</Link>
+          <Link to='/contact'>Contact</Link>
+        </nav>
 
-      <Blackjack path='/' />
+        <Route exact path='/' component={Blackjack} />
+        <Route path='/apps/:id' component={App} />
 
-      <RockPaperScissors path='/rock_paper_scissors' />
+        {/* <Blackjack path='/' /> */}
+        {/* <Route exact path='/' component={Blackjack} /> */}
 
-      <TicTacToe path='/tic_tac_toe' />
+        {/* <RockPaperScissors path='/rock_paper_scissors' /> */}
+        {/* <Route exact path='/rock_paper_scissors' component={RockPaperScissors} /> */}
 
-      <Section
-        color='#d6247a'
-        heading='Contact'
-        content='Contact me always renders.'
-      />
-    </StyledContainer>
+        {/* <TicTacToe path='/tic_tac_toe' /> */}
+        {/* <Route exact path='/tic_tac_toe' component={TicTacToe} /> */}
+
+        <Section
+          color='#d6247a'
+          heading='Contact'
+          content='Contact me always renders.'
+        />
+      </StyledContainer>
+    </Router>
   );
 }
 
-function withRouteMatching(Component) {
-  return class WithRouteMatching extends React.Component {
-    state = { path: location.pathname }
+// class Link extends React.Component {
+//   navigateTo = () => {
+//     history.pushState(null, null, this.props.to);
+//   }
 
-    setPath = () => this.setState({ path: location.pathname })
+//   render() {
+//     return (
+//       <a onClick={this.navigateTo} href='#'>{this.props.children}</a>
+//     );
+//   }
+// }
 
-    componentDidMount() {
-      addEventListener('popstate', this.setPath);
-    }
+// function withPathMatching(Component) {
+//   return class WithPathMatching extends React.Component {
+//     state = { path: location.pathname }
 
-    render() {
-      const pathsMatch = this.props.path === this.state.path;
-      const shouldRenderAlways = !this.props.path;
+//     setPath = () => this.setState({ path: location.pathname })
 
-      if (shouldRenderAlways || pathsMatch) {
-        return <Component {...this.props} currentPath={this.state.path} />;
-      }
-      return null;
-    }
-  };
-}
+//     componentDidMount() {
+//       addEventListener('popstate', this.setPath);
+//     }
 
-class Link extends React.Component {
-  navigate = () => {
-    history.pushState(null, null, this.props.to);
-  }
+//     render() {
+//       const shouldAlwaysRender = !this.props.path;
+//       const pathMatches = this.props.path === this.state.path;
 
-  render() {
-    return (
-      <a href="#" onClick={this.navigate}>
-        {this.props.children}
-      </a>
-    );
-  }
-}
+//       if (shouldAlwaysRender || pathMatches) {
+//         return <Component {...this.props} />;
+//       }
+//       return null;
+//     }
+//   };
+// }
+
+// const Blackjack = withPathMatching(BlackjackPlain);
+// const RockPaperScissors = withPathMatching(RockPaperScissorsPlain);
+// const TicTacToe = withPathMatching(TicTacToePlain);
