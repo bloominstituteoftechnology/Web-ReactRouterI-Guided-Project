@@ -14,7 +14,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.less']
   },
   plugins: [
-    new BundleAnalyzer()
+    // new BundleAnalyzer()
   ],
   module: {
     rules: [

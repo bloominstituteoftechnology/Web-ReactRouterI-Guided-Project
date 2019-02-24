@@ -6,7 +6,7 @@ export default function TicTacToe() {
   return (
     <Section
       path='/tic_tac_toe'
-      color='#d6247a'
+      color='#ffd20c'
       heading='Tic Tac Toe'
       content='This my Tic Tac Toe game.'
     />
