@@ -8,7 +8,7 @@ export default function Blackjack() {
       path='/'
       color='#4286f4'
       heading='Blackjack'
-      content='This is my Blackjack Game.'
+      content='This is my Blackjack game.'
     />
   );
 }
