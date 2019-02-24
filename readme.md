@@ -38,5 +38,7 @@ We need `node` & `npm`, as well as packages `live-server` and `eslint` installed
   * The HOC should go ahead and render the component if no `path` prop is passed.
 
 ## React Router
-  * Explain the BrowserRouter component.
-  *
+  * Explain the `BrowserRouter` component.
+  * Explain the `Route` component.
+  * Explain the `Link` component.
+  * Explain the difference between `render` and `component` props in `Route`.
