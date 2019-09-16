@@ -28,12 +28,21 @@ We need `node` & `npm`. VSCode's `eslint` extension is recommended. Command line
   * Adding an entry to the history: `history.pushState()`.
   * Listening for the `popstate` event. Only triggers when interacting with browser (anchor tags, back button...)!
 
-## Implementing a Link Component That Changes URL locally
+## React Router
+  * Explain the `BrowserRouter` component.
+  * Explain the `Route` component.
+  * Explain the `Link` component.
+  * Investigate the props coming into a component rendered with `Route`.
+  * See how these components have insight into the current location.
+  * See how these components can have navigation code using `props.history`.
+  * Explain the difference between `render` and `component` props in `Route`.
+
+## Implementing a Link Component That Changes URL locally (stretch)
   * Build a class `Link` component that uses `history.pushState()` and an anchor tag to navigate user without reload.
   * The anchor tag within `Link` should have an `href` of `"#"` and an `onClick` handler that pushes the new path.
   * Replace anchor tags inside `nav` with `Link` elements that take a `to` prop.
 
-## Implementing a withRouteMatching HOC
+## Implementing a withRouteMatching HOC (stretch)
   * Explain we would like the wrapped component to render conditionally, depending on the `path` prop.
   * The HOC should have a state of `path` where we will keep track of `location.pathname`.
   * The HOC should render the wrapped component if no `path` prop is passed.
@@ -44,9 +53,3 @@ We need `node` & `npm`. VSCode's `eslint` extension is recommended. Command line
   * We will attach to the `window` object a listener for `popstate` on `componentDidMount`.
   * We need to use `setState` on the `popstate` listener to cause a re-render on URL change.
   * The listener for `popstate` should update `state.path` with the current `location.pathname`.
-
-## React Router
-  * Explain the `BrowserRouter` component.
-  * Explain the `Route` component.
-  * Explain the `Link` component.
-  * Explain the difference between `render` and `component` props in `Route`.
