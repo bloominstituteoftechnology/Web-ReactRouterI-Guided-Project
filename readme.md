@@ -1,9 +1,9 @@
 # How to Run this App
   * Clone repository.
-  * Run `npm install` or `yarn install`.
-  * Run `npm run dev` or `yarn dev`.
-  * Run `npm test` or `yarn test`.
-  * Serve `index.html` using `live-server` or similar.
+  * Run `npm install` to bring in deps.
+  * Run `npm run dev` to run webpack with a watcher.
+  * Run `npm run server` to spin up a development server.
+  * Run `npm test` to run tests with Jest.
 
 # Objectives
   * Learn our options, old and new, for changing the URL programmatically.
