@@ -36,11 +36,9 @@ export default function Container(props) {
           <Link to='/contact'>Contact</Link>
         </nav>
 
-        <Blackjack />
-
+        {/* <Blackjack />
         <RockPaperScissors />
-
-        <TicTacToe />
+        <TicTacToe /> */}
 
         <Section
           color='#d6247a'
