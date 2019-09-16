@@ -7,11 +7,15 @@ export default function Blackjack(props) {
   // it will get magically injected with a bunch
   // of props we did not provide
   return (
-    <Section
-      path={props.location.pathname}
-      color='#4286f4'
-      heading='Blackjack'
-      content='This is my Blackjack game.'
-    />
+    <div>
+      <Section
+        path={props.location.pathname}
+        color='#4286f4'
+        heading='Blackjack'
+        content='This is my Blackjack game.'
+      />
+
+      <button onClick={() => props.history.push('/foo')}>Go to Foo</button>
+    </div>
   );
 }
