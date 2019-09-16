@@ -31,7 +31,7 @@ const StyledContainer = styled.div`
   }
 `;
 
-export default function Container() {
+export default function Container(props) {
   return (
     <Router>
       <StyledContainer>

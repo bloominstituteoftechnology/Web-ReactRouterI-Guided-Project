@@ -2,7 +2,7 @@ import React from 'react';
 import Section from '../components/Section';
 
 
-export default function RockPaperScissors() {
+export default function RockPaperScissors(props) {
   return (
     <Section
       path='/rock_paper_scissors'

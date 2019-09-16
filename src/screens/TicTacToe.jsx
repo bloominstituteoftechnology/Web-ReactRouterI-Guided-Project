@@ -2,7 +2,7 @@ import React from 'react';
 import Section from '../components/Section';
 
 
-export default function TicTacToe() {
+export default function TicTacToe(props) {
   return (
     <Section
       path='/tic_tac_toe'
