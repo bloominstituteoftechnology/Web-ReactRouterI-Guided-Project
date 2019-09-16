@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter,
+  BrowserRouter as Router,
   Route,
   Link,
 } from 'react-router-dom'; // we need NAMED exports
@@ -25,7 +25,7 @@ const StyledContainer = styled.div`
 export default function Container(props) {
   return (
     // we wrap in a Router just once per app
-    <BrowserRouter>
+    <Router>
       <StyledContainer>
         <nav>
           {/* The Link component which is provided to us
@@ -50,6 +50,6 @@ export default function Container(props) {
           content='Contact me always renders.'
         />
       </StyledContainer>
-    </BrowserRouter>
+    </Router>
   );
 }
