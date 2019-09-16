@@ -52,6 +52,7 @@
         "no-restricted-globals": 0,
         "react/jsx-max-props-per-line": 0,
         "react/jsx-closing-bracket-location": 0,
-        "react/require-default-props": 0
+        "react/require-default-props": 0,
+        "react/jsx-props-no-spreading": 0
     }
 }
