@@ -36,6 +36,8 @@ export default function Container(props) {
           <Link to='/contact'>Contact</Link>
         </nav>
 
+        <Route path="/blackjack" component={Blackjack} />
+
         {/* <Blackjack />
         <RockPaperScissors />
         <TicTacToe /> */}
