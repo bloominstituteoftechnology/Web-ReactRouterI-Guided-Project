@@ -1,4 +1,9 @@
 import React from 'react';
+import {
+  BrowserRouter,
+  Route,
+  Link,
+} from 'react-router-dom'; // we need NAMED exports
 import styled from 'styled-components';
 import Blackjack from '../screens/Blackjack';
 import RockPaperScissors from '../screens/RockPaperScissors';
@@ -19,25 +24,27 @@ const StyledContainer = styled.div`
 
 export default function Container(props) {
   return (
-    <StyledContainer>
-      <nav>
-        <a href='#'>Black</a>
-        <a href='#'>Rock</a>
-        <a href='#'>Tic</a>
-        <a href='#'>Contact</a>
-      </nav>
+    <BrowserRouter>
+      <StyledContainer>
+        <nav>
+          <a href='#'>Black</a>
+          <a href='#'>Rock</a>
+          <a href='#'>Tic</a>
+          <a href='#'>Contact</a>
+        </nav>
 
-      <Blackjack />
+        <Blackjack />
 
-      <RockPaperScissors />
+        <RockPaperScissors />
 
-      <TicTacToe />
+        <TicTacToe />
 
-      <Section
-        color='#d6247a'
-        heading='Contact'
-        content='Contact me always renders.'
-      />
-    </StyledContainer>
+        <Section
+          color='#d6247a'
+          heading='Contact'
+          content='Contact me always renders.'
+        />
+      </StyledContainer>
+    </BrowserRouter>
   );
 }
