@@ -24,13 +24,16 @@ const StyledContainer = styled.div`
 
 export default function Container(props) {
   return (
+    // we wrap in a Router just once per app
     <BrowserRouter>
       <StyledContainer>
         <nav>
-          <a href='#'>Black</a>
-          <a href='#'>Rock</a>
-          <a href='#'>Tic</a>
-          <a href='#'>Contact</a>
+          {/* The Link component which is provided to us
+          by the react router lib is USING THE History API */}
+          <Link to='/blackjack'>Black</Link>
+          <Link to='/rock_paper_scissors'>Rock</Link>
+          <Link to='/tic_tac_toe'>Tic</Link>
+          <Link to='/contact'>Contact</Link>
         </nav>
 
         <Blackjack />
