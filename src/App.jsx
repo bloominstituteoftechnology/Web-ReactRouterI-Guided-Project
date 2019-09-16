@@ -7,7 +7,32 @@ import Container from './components/Container';
 //   <Container />, document.querySelector('#target'),
 // );
 
+const onLinkClick = evt => {
+  evt.preventDefault();
+  // let's navigate programatically!!!
+  // location.href = 'http://www.wikipedia.org';
+  // location.reload();
+  history.pushState(null, null, 'the-resource');
+};
+
+const onBackClick = evt => {
+  // using history api,
+  // make this go back to the previous entry
+  // of the history stack
+};
+
 ReactDOM.render(
-  <a onClick={onLinkClick} href="http://www.google.com">The Link</a>,
+  <div>
+    <a
+      onClick={onLinkClick}
+      href="http://www.google.com">
+      The Link
+    </a>
+    <a
+      href="#"
+      onClick={onBackClick}>
+      Back button
+    </a>
+  </div>,
   document.querySelector('#target'),
 );
