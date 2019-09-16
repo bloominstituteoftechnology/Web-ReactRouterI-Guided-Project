@@ -20,7 +20,8 @@ const onBackClick = evt => {
   // make this go back to the previous entry
   // of the history stack
   evt.preventDefault();
-  history.back(); // the history API is HTML5 tech
+  // history.back(); // the history API is HTML5 tech
+  history.go(-1);
 };
 
 ReactDOM.render(
