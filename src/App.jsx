@@ -28,6 +28,7 @@ ReactDOM.render(
       href="http://www.google.com">
       The Link
     </a>
+    <br />
     <a
       href="#"
       onClick={onBackClick}>
