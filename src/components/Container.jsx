@@ -30,13 +30,13 @@ export default function Container(props) {
         <nav>
           {/* The Link component which is provided to us
           by the react router lib is USING THE History API */}
-          <Link to='/blackjack'>Black</Link>
+          <Link to='/'>Black</Link>
           <Link to='/rock_paper_scissors'>Rock</Link>
           <Link to='/tic_tac_toe'>Tic</Link>
           <Link to='/contact'>Contact</Link>
         </nav>
 
-        <Route path="/blackjack" component={Blackjack} />
+        <Route exact path="/" component={Blackjack} />
         <Route path="/rock_paper_scissors" component={RockPaperScissors} />
         <Route path="/tic_tac_toe" component={TicTacToe} />
 
