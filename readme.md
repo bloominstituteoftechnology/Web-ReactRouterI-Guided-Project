@@ -10,8 +10,8 @@
   * Learn how we might conditionally render content based on URL.
   * Learn other reasons this might be useful: enabling back button, etc.
   * Learn about the History API.
-  * Reimplement a crude version of React Router using the History API.
   * Learn the basics of React Router: `Router`, `Route` and `Link`.
+  * Reimplement a crude version of React Router using the History API. (Stretch)
 
 # Requirements
 We need `node` & `npm`. VSCode's `eslint` extension is recommended. Command line commands are run inside the project folder. This guide uses npm but should work the same using yarn.
