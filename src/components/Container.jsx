@@ -37,6 +37,8 @@ export default function Container(props) {
         </nav>
 
         <Route path="/blackjack" component={Blackjack} />
+        <Route path="/rock_paper_scissors" component={RockPaperScissors} />
+        <Route path="/tic_tac_toe" component={TicTacToe} />
 
         {/* <Blackjack />
         <RockPaperScissors />
